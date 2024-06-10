@@ -1,3 +1,47 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://lactoseintolerant.dev/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'lactose intolerant'
+theme = "archie"
+
+# Code Highlight
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+paginate = 3                         # articles per page
+
+[params]
+mode = "light"                        # color-mode → light,dark,toggle or auto
+useCDN = false                        # don't use CDNs for fonts and icons, instead serve them locally.
+subtitle = "This is my new blog hehe"
+mathjax = true                        # enable MathJax support
+katex = true                          # enable KaTeX support
+customcss = ["css/index.css"]
+
+# Social Tags
+
+[[params.social]]
+name = "gitHub"
+icon = "github"
+url = "https://github.com/kariy/blog"
+
+[[params.social]]
+name = "x"
+icon = "twitter"
+url = "https://x.com/ammarif_/"
+
+# Main menu Items
+
+[[menu.main]]
+name = "about"
+url = "/about"
+weight = 1
+
+[[menu.main]]
+name = "posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "tags"
+url = "/tags"
+weight = 3
