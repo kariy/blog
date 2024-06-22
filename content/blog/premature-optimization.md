@@ -1,9 +1,9 @@
 +++
-title = I like to prematurely optimize my code
-description = Sometimes premature optimizing your code is good
+title = "I like to prematurely optimize my code"
+description = "Sometimes premature optimizing your code is good"
 date = 2024-06-21T22:40:48-04:00
 draft = true
-tags = [programming]
+tags = ["programming"]
 +++
 
 Premature optimization is the root of all evil bla bla bla.... If you're a somewhat decent software engineer that has been coding for a while, then you most likely have heard of that saying at some point in your life before.
