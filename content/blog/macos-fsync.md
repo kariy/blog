@@ -12,7 +12,7 @@ According to the manual page of `fsync` on Mac OS X:
 >
 > Specifically, if the drive loses power or the OS crashes, the application may find that only some or none of their data was written. The disk drive may also re-order the data so that later writes may be present, while earlier writes are not.
 
-When `fsync` is called, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) (not to be confused with the kernel page cache) for a while before it is persisted.
+When `fsync` is called, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device write [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) (not to be confused with the kernel page cache) for a while before it is persisted.
 
 Just calling `fsync` does not guarantee that the data will be persisted to the permanent storage device. To provide that guarantee, Mac OS X provides the `F_FULLFSYNC` command on the `fcntl` system call.
 
