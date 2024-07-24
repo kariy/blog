@@ -1,18 +1,28 @@
 +++
-title = "On MacOS, fsync may not be enough"
+title = "On MacOS, fsync may not be enough to guarantee data durability"
 date = "2024-06-23T12:51:44-04:00"
 description = "The behaviour of fsync on Mac OS X"
 draft = true
 tags = ["os"]
 +++
 
-According to the manual page of `fsync` on Mac OS X:
+On my journey to learn about the internals of databases, I stumbled upon a quite interesting(?) fact about the behaviour of `fsync` on Mac OS X.
+
+## the journey of a write
+
+When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of the storage device.
+
+## `fsync` behaviour on Mac OS X
+
+The POSIX standard describe `fsync` as a method to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
+
+However, according to the manual page of `fsync` on Mac OS X:
 
 > Note that while fsync() will flush all data from the host to the drive (i.e. the "permanent storage device"), the drive itself may not physically write the data to the platters for quite some time and it may be written in an out-of-order sequence.
 >
 > Specifically, if the drive loses power or the OS crashes, the application may find that only some or none of their data was written. The disk drive may also re-order the data so that later writes may be present, while earlier writes are not.
 
-When `fsync` is called, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device write [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) (not to be confused with the kernel page cache) for a while before it is persisted.
+When `fsync` is called on Mac OS, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device write [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) (not to be confused with the kernel page cache) for a while before it is persisted.
 
 Just calling `fsync` does not guarantee that the data will be persisted to the permanent storage device. To provide that guarantee, Mac OS X provides the `F_FULLFSYNC` command on the `fcntl` system call.
 
@@ -22,27 +32,22 @@ From its manual page, the `F_FULLFSYNC` command is described as:
 
 Let's do a simple comparison between using `fsync` and `fcntl(F_FULLFSYNC)` to flush data.
 
-I've written a simple Rust program that writes 1GB of dumy data to a file in 1MB chunks. For every chunk written, we call `fsync` to instruct the OS to sync the dirty pages to disk. We then measure the time it takes to finish all the writes.
+I've written a simple Rust program that writes 1GB of data to a file in 1MB chunks. For every chunk written, we call `fsync` or `fcntl(F_FULLFSYNC)` to instruct the OS to sync the dirty pages to disk. We then inspect how long it took for both methods to finish.
 
 ```rust
 fn main() -> Result<(), std::io::Error> {
-    const FILENAME: &str = "test_file.txt";
-    let mut file = OpenOptions::new().create(true).write(true).open(FILENAME)?;
+    let mut file = OpenOptions::new().create(true).write(true).open("file.txt")?;
 
     const CHUNK_SIZE: usize = 1024 * 1024; // 1 MB
     const TOTAL_SIZE: usize = 1024 * 1024 * 1024; // 1 GB
 
     let mut written = 0;
-    let time = std::time::Instant::now();
 
     while written < TOTAL_SIZE {
         file.write_all(&[0u8; CHUNK_SIZE])?;
         written += CHUNK_SIZE;
         unsafe { libc::fsync(file.as_raw_fd()) };
     }
-
-    println!("Time taken: {}ms", time.elapsed().as_millis());
-    std::fs::remove_file(FILENAME)?;
 
     Ok(())
 }
@@ -65,7 +70,7 @@ So now, if we replace the call to `fsync` with `fcntl(F_FULLFSYNC)` to perform t
 unsafe { libc::fcntl(file.as_raw_fd(), F_FULLFSYNC) };
 ```
 
-Note: You could also just call [`File::sync_all()`](https://github.com/rust-lang/rust/blob/33422e72c8a66bdb5ee21246a948a1a02ca91674/library/std/src/sys/pal/unix/fs.rs#L1188-L1200) which uses `fcntl(F_FULLFSYNC)` under the hood.
+Note: You could also just call [`File::sync_all()`](https://github.com/rust-lang/rust/blob/33422e72c8a66bdb5ee21246a948a1a02ca91674/library/std/src/sys/pal/unix/fs.rs#L1188-L1200) which just call `fcntl(F_FULLFSYNC)` under the hood.
 
 the time it took to finish the writes is now approximately ~10 times slower (~3 seconds)!
 
@@ -75,6 +80,8 @@ Finished `release` profile [optimized] target(s) in 0.03s
 Time taken: 3019ms
 ```
 
-The time difference is aligned with the behaviour that we expect, as described by the man pages. `fcntl(F_FULLFSYNC)` is clearly doing something more than `fsync` here. Instead of just sending the dirty pages to the storage device, it also waits until it has persisted the data to the disk platters or flash chips. it flushes the dirty pages to the storage device and also tells the device to flush the buffered data in the disk buffer.
+The time difference is aligned with the behaviour that we expect, as described by the man pages. `fcntl(F_FULLFSYNC)` is clearly doing something more than `fsync` here. Instead of just sending the dirty pages to the storage device, it also waits until it has persisted the data to the disk platters or flash chips. it flushes the dirty pages to disk and also tells it to flush its own buffer.
 
 Applications, such as databases, that needs the highest guarantee on data integrity, and require a strict ordering of writes should use `fcntl(F_FULLFSYNC)` to ensure that the committed data is written to the permanent storage and in the order they expect. This is especially important for databases so as to provide the highest durability in order to be fully ACID-compliant.
+
+Google's LevelDB repository has a [commit](https://github.com/google/leveldb/commit/296de8d5b8e4e57bd1e46c981114dfbe58a8c4fa) on using `fcntl(F_FULLFSYNC)` when needing to sync data to the durable media on Apple systems. The author has also included a very insightful commit message about their learnings on introducing a fallback to `fsync` when the filesystem that it operates on have no support for `F_FULLFSYNC`.
