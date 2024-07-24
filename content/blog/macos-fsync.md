@@ -8,7 +8,7 @@ tags = ["os"]
 
 On my journey to learn about the internals of databases, I stumbled upon a quite interesting(?) fact about the behaviour of `fsync` on Mac OS.
 
-When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of the storage device.
+When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of your storage device.
 
 <div class="image">
   <img src="/images/data-buffered-flow.png" alt="Diagram on data flow from application to stable storage"/>
