@@ -1,40 +1,40 @@
 +++
-title = "TIL; on Mac OS, fsync may not be enough to guarantee data durability"
+title = "fsync may not be enough to guarantee data durability on Mac OS"
 date = "2024-06-23T12:51:44-04:00"
 description = "The behaviour of fsync on Mac OS X"
 draft = true
 tags = ["os"]
 +++
 
-On my journey to learn about the internals of databases, I stumbled upon a quite interesting(?) fact about the behaviour of `fsync` on Mac OS X.
-
-## the journey of a write
+On my journey to learn about the internals of databases, I stumbled upon a quite interesting(?) fact about the behaviour of `fsync` on Mac OS.
 
 When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of the storage device.
 
 <div class="image">
-  <img  src="/images/data-buffered-flow.png" alt="Diagram on data flow from application to stable storage"/>
+  <img src="/images/data-buffered-flow.png" alt="Diagram on data flow from application to stable storage"/>
 </div>
 
-## how fsync behaves on Mac OS X
+The data may get buffered at each layer of the stack. This is usually done by the OS to optimize on the amount of IO operations being done. If every write has to reach the disk, that would be _extremely_ slow.
+
+Depending on the types of buffering (block, line, or unbuffered), the data wouldn't reach its destination straight away unless (1) the buffer is full, (2) `fflush` is explicitly called, or (3) the output stream itself is closed. But that would only flush the data to the kernel page cache (unless you open the file with `F_NOCACHE` or `O_DIRECT` on Linux). If you want to ensure it gets written directly on disk, you would have to call `fsync`.
 
 The POSIX standard describe `fsync` as a method to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
 
-However, according to the manual page of `fsync` on Mac OS X:
+However, according to the manpage for `fsync(2)` on Mac OS X:
 
 > Note that while fsync() will flush all data from the host to the drive (i.e. the "permanent storage device"), the drive itself may not physically write the data to the platters for quite some time and it may be written in an out-of-order sequence.
 >
 > Specifically, if the drive loses power or the OS crashes, the application may find that only some or none of their data was written. The disk drive may also re-order the data so that later writes may be present, while earlier writes are not.
 
-When `fsync` is called on Mac OS, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device write [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) (not to be confused with the kernel page cache) for a while before it is persisted.
+This means when `fsync` is called on Mac OS, the data is sent to the storage device, but it does't wait until the device has actually written the data to the physical media. The dirty pages may instead reside in the device write [disk buffer](https://en.wikipedia.org/wiki/Disk_buffer) for a while before it is persisted.
 
 Just calling `fsync` does not guarantee that the data will be persisted to the permanent storage device. To provide that guarantee, Mac OS X provides the `F_FULLFSYNC` command on the `fcntl` system call.
 
-From its manual page, the `F_FULLFSYNC` command is described as:
+The manpage described the `F_FULLFSYNC` command as:
 
 > Does the same thing as fsync(2) then asks the drive to flush all buffered data to the permanent storage device (arg is ignored). This is currently implemented on HFS, MS-DOS (FAT), and Universal Disk Format (UDF) file systems. The operation may take quite a while to complete.  Certain FireWire drives have also been known to ignore the request to flush their buffered data.
 
-## example comparison
+## Example comparison
 
 Let's do a simple comparison between using `fsync` and `fcntl(F_FULLFSYNC)` to flush data.
 
