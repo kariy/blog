@@ -8,6 +8,8 @@ tags = ["os"]
 
 On my journey to learn about the internals of databases, I stumbled upon a quite interesting(?) fact about the behaviour of `fsync` on Mac OS.
 
+## OS buffering lore
+
 When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of your storage device.
 
 <div class="image">
@@ -16,9 +18,11 @@ When you instruct your program to write data to a file, the data may go through 
 
 The data may get buffered at each layer of the stack. This is usually done by the OS to optimize on the amount of IO operations being done. If every write has to reach the disk, that would be _extremely_ slow.
 
-When doing `write`, depending on the types of buffering (block, line, or unbuffered), the data wouldn't reach its destination straight away unless (1) the buffer is full, (2) `fflush` is called, or (3) the output stream itself is closed. But that would only flush the data to the kernel page cache (unless you open the file with `F_NOCACHE` or `O_DIRECT` on Linux). If you want to ensure it gets written directly to disk, you would have to use `fsync`.
+When doing `write`, depending on the types of buffering (block, line, or unbuffered), the data wouldn't reach its destination straight away unless (1) the buffer is full, (2) `fflush` is called, or (3) the output stream itself is closed. But that would only flush the data to the kernel page cache (unless you open the file with `F_NOCACHE` or `O_DIRECT` on Linux). If you want to ensure it gets written directly to disk, you would need to use `fsync`.
 
 The POSIX standard describe `fsync` as a way to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
+
+## fsync on Mac OS
 
 However, according to the manpage for `fsync(2)` on Mac OS X:
 
@@ -30,7 +34,7 @@ This means when `fsync` is called on Mac OS, the data is sent to the storage dev
 
 Just calling `fsync` does not guarantee that the data will be persisted to the permanent storage device. To provide that guarantee, Mac OS X provides the `F_FULLFSYNC` command on the `fcntl` system call.
 
-The manpage described the `F_FULLFSYNC` command as:
+The manpage of `fcntl(2)` described `F_FULLFSYNC` command as:
 
 > Does the same thing as fsync(2) then asks the drive to flush all buffered data to the permanent storage device (arg is ignored). This is currently implemented on HFS, MS-DOS (FAT), and Universal Disk Format (UDF) file systems. The operation may take quite a while to complete.  Certain FireWire drives have also been known to ignore the request to flush their buffered data.
 
@@ -58,6 +62,15 @@ fn main() -> Result<(), std::io::Error> {
     Ok(())
 }
 ```
+
+<div class="image">
+  <img src="/images/fsync_instruments.png" alt="Diagram on data flow from application to stable storage"/>
+</div>
+
+<div class="image">
+  <img src="/images/sys_fcntl_instruments.png" alt="Diagram on data flow from application to stable storage"/>
+</div>
+
 
 Note: This is not exactly the most accurate and comprehensive write load test. Other factors might be affecting the provided results so they might not actually be accurate. Therefore, take the results with a grain of salt, but I think it's good enough as an example.
 
