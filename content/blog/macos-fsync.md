@@ -16,9 +16,9 @@ When you instruct your program to write data to a file, the data may go through 
 
 The data may get buffered at each layer of the stack. This is usually done by the OS to optimize on the amount of IO operations being done. If every write has to reach the disk, that would be _extremely_ slow.
 
-Depending on the types of buffering (block, line, or unbuffered), the data wouldn't reach its destination straight away unless (1) the buffer is full, (2) `fflush` is explicitly called, or (3) the output stream itself is closed. But that would only flush the data to the kernel page cache (unless you open the file with `F_NOCACHE` or `O_DIRECT` on Linux). If you want to ensure it gets written directly on disk, you would have to call `fsync`.
+When doing `write`, depending on the types of buffering (block, line, or unbuffered), the data wouldn't reach its destination straight away unless (1) the buffer is full, (2) `fflush` is called, or (3) the output stream itself is closed. But that would only flush the data to the kernel page cache (unless you open the file with `F_NOCACHE` or `O_DIRECT` on Linux). If you want to ensure it gets written directly to disk, you would have to use `fsync`.
 
-The POSIX standard describe `fsync` as a method to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
+The POSIX standard describe `fsync` as a way to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
 
 However, according to the manpage for `fsync(2)` on Mac OS X:
 
