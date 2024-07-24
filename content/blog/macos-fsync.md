@@ -1,5 +1,5 @@
 +++
-title = "On MacOS, fsync may not be enough to guarantee data durability"
+title = "TIL; on Mac OS, fsync may not be enough to guarantee data durability"
 date = "2024-06-23T12:51:44-04:00"
 description = "The behaviour of fsync on Mac OS X"
 draft = true
@@ -12,7 +12,11 @@ On my journey to learn about the internals of databases, I stumbled upon a quite
 
 When you instruct your program to write data to a file, the data may go through several layers before it finally end up on the physical disk platter or flash chips of the storage device.
 
-## `fsync` behaviour on Mac OS X
+<div class="image">
+  <img  src="/images/data-buffered-flow.png" alt="Diagram on data flow from application to stable storage"/>
+</div>
+
+## how fsync behaves on Mac OS X
 
 The POSIX standard describe `fsync` as a method to force a physical write of data from the buffer cache, in order to ensure that all data up to the time of the fsync has been recorded on disk and thus will survive a system crash.
 
@@ -29,6 +33,8 @@ Just calling `fsync` does not guarantee that the data will be persisted to the p
 From its manual page, the `F_FULLFSYNC` command is described as:
 
 > Does the same thing as fsync(2) then asks the drive to flush all buffered data to the permanent storage device (arg is ignored). This is currently implemented on HFS, MS-DOS (FAT), and Universal Disk Format (UDF) file systems. The operation may take quite a while to complete.  Certain FireWire drives have also been known to ignore the request to flush their buffered data.
+
+## example comparison
 
 Let's do a simple comparison between using `fsync` and `fcntl(F_FULLFSYNC)` to flush data.
 
