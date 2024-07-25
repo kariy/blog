@@ -18,3 +18,4 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Unixism](https://unixism.net/)
 - [Considerations on Codecrafting](https://blog.polybdenum.com/)
 - [mcyoung](https://mcyoung.xyz/)
+- [without boats, dream dry up](https://without.boats/)
