@@ -1,5 +1,5 @@
 +++
-title = "lactose intolerant (dot) dev"
+title = "lactose intolerant [dot] dev"
 +++
 
 This is my blog where I post my random thoughts or cool things I want to share.
