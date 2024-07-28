@@ -1,6 +1,6 @@
 +++
 title = "fsync may not be enough to guarantee data durability on Mac OS"
-date = "2024-06-23T12:51:44-04:00"
+date = "2024-07-27T12:51:44-04:00"
 description = "The behaviour of fsync on Mac OS X"
 tags = ["os"]
 +++
