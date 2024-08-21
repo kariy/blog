@@ -3,4 +3,4 @@ title = 'Projects'
 menu = "main"
 +++
 
-- [Dojo](https://github.com/dojoengine/dojo) A framework for building provable games
+- [Dojo](https://github.com/dojoengine/dojo) A toolchain for building provable games and autonomous worlds with Cairo
