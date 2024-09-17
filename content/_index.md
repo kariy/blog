@@ -19,3 +19,7 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Considerations on Codecrafting](https://blog.polybdenum.com/)
 - [mcyoung](https://mcyoung.xyz/)
 - [without boats, dream dry up](https://without.boats/)
+- [Manish Goregaokar's blog](https://manishearth.github.io/blog/archives/)
+- [Yoshua Wuyts](https://blog.yoshuawuyts.com/)
+- [Eli Bendersky's](https://eli.thegreenplace.net/)
+
