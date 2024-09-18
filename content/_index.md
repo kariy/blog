@@ -22,4 +22,5 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Manish Goregaokar's blog](https://manishearth.github.io/blog/archives/)
 - [Yoshua Wuyts](https://blog.yoshuawuyts.com/)
 - [Eli Bendersky's](https://eli.thegreenplace.net/)
+- [purplesyringa](https://purplesyringa.moe/blog/)
 
