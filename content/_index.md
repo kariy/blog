@@ -23,4 +23,5 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Yoshua Wuyts](https://blog.yoshuawuyts.com/)
 - [Eli Bendersky's](https://eli.thegreenplace.net/)
 - [purplesyringa](https://purplesyringa.moe/blog/)
+- [Alyssa Rosenzweig](https://rosenzweig.io/)
 
