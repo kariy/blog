@@ -29,3 +29,4 @@ This is my blog where I post my random thoughts or cool things I want to share.
 ## Favourite literatures
 
 - [Programming as Theory Building](https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf)
+- [Teach Yourself Programming in Ten Years](https://www.norvig.com/21-days.html)
