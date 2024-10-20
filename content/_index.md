@@ -24,6 +24,7 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Eli Bendersky's](https://eli.thegreenplace.net/)
 - [purplesyringa](https://purplesyringa.moe/blog/)
 - [Alyssa Rosenzweig](https://rosenzweig.io/)
+- [Coding Horror](https://blog.codinghorror.com/)
 
 ## Favourite literatures
 
