@@ -8,7 +8,7 @@ _This is the first post of my random rambles about my life, or maybe life in gen
  
 _I intend to make the posts in this series, short. Something that I can write, more or less, in a single sitting. My intention is to write down whatever that comes to my head at the moment, without worrying about the post having any substance._ 
 
-_My motivation is mainly to get myself into a habit of writing more often and because recently I realized I like to think a lot about these sort of stuff so why not write about them as well._
+_My motivation is mainly to get myself into a habit of writing more often to get better at it. Also because recently I realized I like to think a lot about these sort of stuff so why not write about them as well._
  
 ---
 
