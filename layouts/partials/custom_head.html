@@ -41,7 +41,12 @@
     body {
       font-family: "BerkeleyMono", monospace;
       font-size: 0.85rem;
-      /* text-transform: uppercase; */
+      letter-spacing: -0.02rem;
+    }
+
+    p {
+      margin-block-start: 1.5em;
+      margin-block-end: 1.5em;
     }
 
     div.highlight pre {
@@ -55,7 +60,8 @@
     }
 
     header {
-      margin-bottom: 25px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
     }
 
     .image {
@@ -78,6 +84,10 @@
       display: none;
     }
 
+    nav {
+      text-transform: lowercase;
+    }
+
     nav a {
       color: #444;
       text-decoration: none;
@@ -89,7 +99,7 @@
     }
 
     nav a::before {
-      content: ":: ";
+      content: "./ ";
     }
 
     blockquote {
@@ -105,12 +115,35 @@
       background: white;
     }
 
+    ul {
+      list-style-type: square;
+      padding-left: 30px;
+    }
+
+    a {
+      color: #444;
+    }
+
+    a:hover {
+      color: white;
+      background: #444;
+    }
+
     @media (prefers-color-scheme: dark) {
       nav a {
         color: whitesmoke;
       }
 
       nav a:hover {
+        color: #333;
+        background: white;
+      }
+
+      a {
+        color: whitesmoke;
+      }
+
+      a:hover {
         color: #333;
         background: white;
       }

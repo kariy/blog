@@ -1,15 +1,17 @@
 +++
-title = "lactose intolerant [dot] dev"
+title = "lactose intolerant"
 +++
+
+### :: about
 
 This is my blog where I post my random thoughts or cool things I want to share.
 
-**x**: [@ammarif_](https://x.com/ammarif_)\
-**github**: [kariy](https://github.com/kariy)
+### :: socials
 
----
+- x: [@ammarif_](https://x.com/ammarif_)
+- github: [kariy](https://github.com/kariy)
 
-## Other Blogs I Like
+### :: other blogs i like
 
 - [All Things Distributed](https://www.allthingsdistributed.com/)
 - [Jack Vanlightly](https://jack-vanlightly.com/)
@@ -17,7 +19,6 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [flashdba](https://flashdba.com/)
 - [Unixism](https://unixism.net/)
 - [Considerations on Codecrafting](https://blog.polybdenum.com/)
-- [mcyoung](https://mcyoung.xyz/)
 - [without boats, dream dry up](https://without.boats/)
 - [Manish Goregaokar's blog](https://manishearth.github.io/blog/archives/)
 - [Yoshua Wuyts](https://blog.yoshuawuyts.com/)
@@ -26,7 +27,7 @@ This is my blog where I post my random thoughts or cool things I want to share.
 - [Alyssa Rosenzweig](https://rosenzweig.io/)
 - [Coding Horror](https://blog.codinghorror.com/)
 
-## Favourite literatures
+### :: favourite literatures
 
 - [Programming as Theory Building](https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf)
 - [Teach Yourself Programming in Ten Years](https://www.norvig.com/21-days.html)

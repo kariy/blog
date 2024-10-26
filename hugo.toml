@@ -6,7 +6,7 @@ baseURL = "https://lactoseintolerant.dev"
 theme = 'hugo-bearblog'
 
 # Basic metadata configuration for your blog.
-title = 'lactose intolerant [dot] dev'
+title = 'LACTOSE INTOLERANT.'
 author = "Kariy"
 # copyright = "Copyright © 2020, Jane Doe."
 languageCode = "en-US"
