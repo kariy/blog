@@ -3,13 +3,16 @@ title = 'Notes'
 menu = 'main'
 +++
 
-### :: NOTES
-
+<div class="section">
+<div class="section-title">Notes</div>
 
 - [Programming as Theory Building](https://algoritmos-iii.github.io/assets/bibliografia/programming-as-theory-building.pdf)
 - [Teach Yourself Programming in Ten Years](https://www.norvig.com/21-days.html)
 
-### :: OTHER BLOGS
+</div>
+
+<div class="section">
+<div class="section-title">Other Blogs</div>
 
 List of interesting blogs (mostly tech focused) that I follow regularly.
 
@@ -26,3 +29,5 @@ List of interesting blogs (mostly tech focused) that I follow regularly.
 - [purplesyringa](https://purplesyringa.moe/blog/)
 - [Alyssa Rosenzweig](https://rosenzweig.io/)
 - [Coding Horror](https://blog.codinghorror.com/)
+
+</div>

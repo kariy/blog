@@ -80,22 +80,25 @@
       margin-bottom: 1.5rem;
     }
 
-    footer {
-      display: none;
-    }
-
     nav {
       text-transform: lowercase;
     }
 
-    nav a {
-      color: #28282B;
-      text-decoration: none;
+    a {
+      color: #28282b;
     }
 
-    nav a:hover {
-      color: white;
-      background: #28282B;
+    a:visited {
+      color: inherit !important;
+    }
+
+    a:hover {
+      color: white !important;
+      background: #28282b;
+    }
+
+    nav a {
+      text-decoration: none;
     }
 
     nav a::before {
@@ -104,6 +107,75 @@
 
     blockquote {
       color: #ababab;
+    }
+
+    div.section {
+      position: relative;
+      border: 1.5px solid black;
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      background: white;
+    }
+
+    div.section:after {
+      content: "";
+      background-image: url("/images/dotted.svg");
+      background-repeat: repeat;
+
+      box-sizing: border-box;
+      border: 0 solid #e5e7eb;
+
+      position: absolute;
+      z-index: -10;
+      left: 0.5rem;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      top: 0.5rem;
+    }
+
+    div.section-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      position: absolute;
+      font-weight: 600;
+      top: -13px;
+      background-color: white;
+      padding: 0 0.4rem;
+    }
+
+    /* Have to copy paste this because the blog page is processed differently */
+
+    ul.blog-posts li {
+      padding: 0.5rem 1rem;
+      position: relative;
+      border: 1.5px solid black;
+      box-sizing: border-box;
+      margin: 0.9rem 0;
+      background: white;
+    }
+
+    ul.blog-posts li:after {
+      content: "";
+      background-image: url("/images/dotted.svg");
+      background-repeat: repeat;
+
+      box-sizing: border-box;
+      border: 0 solid #e5e7eb;
+
+      position: absolute;
+      z-index: -10;
+      left: 0.5rem;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      top: 0.5rem;
+    }
+
+    /* the filter section under the blog post lists */
+
+    ul.blog-posts ~ small div {
+      margin-top: 2rem;
     }
 
     hr {
@@ -120,18 +192,9 @@
       padding-left: 30px;
     }
 
-    a {
-      color: #28282B;
-    }
-
-    a:hover {
-      color: white;
-      background: #28282B;
-    }
-
     @media (prefers-color-scheme: dark) {
       body {
-	background: #28282B !important;
+        background: #28282b !important;
       }
 
       nav a {
@@ -139,7 +202,7 @@
       }
 
       nav a:hover {
-        color: #28282B;
+        color: #28282b;
         background: white;
       }
 
@@ -148,8 +211,22 @@
       }
 
       a:hover {
-        color: #28282B;
+        color: #28282b !important;
         background: white;
+      }
+
+      div.section {
+        background: #28282b;
+        border: 1.5px solid grey;
+      }
+
+      div.section-title {
+        background: #28282b;
+      }
+
+      ul.blog-posts li {
+        background: #28282b;
+        border: 1.5px solid grey;
       }
 
       blockquote {
@@ -157,7 +234,7 @@
       }
 
       pre.ending-asciiart code {
-        background: #28282B;
+        background: #28282b;
       }
     }
   </style>
