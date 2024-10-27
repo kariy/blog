@@ -1,7 +1,14 @@
 +++
-title = 'Notes'
+title = 'Misc'
 menu = 'main'
 +++
+
+<div class="section">
+<div class="section-title">Books</div>
+
+- [The Soul Of A New Machine](https://www.goodreads.com/book/show/7090.The_Soul_of_a_New_Machine)
+
+</div>
 
 <div class="section">
 <div class="section-title">Notes</div>
