@@ -36,5 +36,6 @@ List of interesting blogs (mostly tech focused) that I follow regularly.
 - [purplesyringa](https://purplesyringa.moe/blog/)
 - [Alyssa Rosenzweig](https://rosenzweig.io/)
 - [Coding Horror](https://blog.codinghorror.com/)
+- [The Obversation Deck](https://bcantrill.dtrace.org/)
 
 </div>
