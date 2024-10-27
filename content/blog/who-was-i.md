@@ -4,13 +4,14 @@ date = "2024-10-26T23:38:18-04:00"
 tags = ["life","random"]
 +++
 
-Who was I? What was I like before? Was this always on my mind? The memories of my past self has become blurry. 
+Who was I? What was I like before? Was this always on my mind? The memories of my past self has become blurry.
 
-As I continued, I slowly forgot how I was like 2 years before. My devotion was justified by what I believed to be _right_. The reasoning was faithful to my own definition of *it*, but I may have devoted myself to the wrong thing.
+As I continued, I slowly forgot how I was 2 years before. My devotion was justified by what I believed to be _right_. The reasoning was faithful to my own definition of *it*, but I may have devoted myself to the wrong thing.
 
-I should have chosen my devotions more carefully next time.
+Next time, I should have chosen my devotions more carefully.
 
-```
+<pre class="ending-asciiart">
+<code>
   .    _     *       \|/   .       .      -*-              +
     .' \\`.     +    -*-     *   .         '       .   *
  .  |__''_|  .       /|\ +         .    +       .           |
@@ -18,4 +19,5 @@ I should have chosen my devotions more carefully next time.
     |     |           `  .    '             . *   .    +    '
   _.'-----'-._     *                  .
 /             \__.__.--._______________
-```
+</code>
+</pre>
