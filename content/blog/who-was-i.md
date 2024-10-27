@@ -1,7 +1,7 @@
 +++
 title = "Finding Myself #2"
 date = "2024-10-26T23:38:18-04:00"
-tags = ["life","random"]
+tags = ["life","random", "finding-myself"]
 +++
 
 Who was I? What was I like before? Was this always on my mind? The memories of my past self has become blurry.
