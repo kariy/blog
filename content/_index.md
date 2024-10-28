@@ -7,7 +7,7 @@ title = "lactose intolerant"
 
 I'm Ammar Arif, but some people call me Kari (pronounced **keh**·ree). Sometimes can be seen spelled as *Karii*, *Kariy*, or *Kariiyy*.
 
-This is a website where I post my random thoughts or cool things I want to share. I also use it as a storage place for things I don't want to forget.
+This is a website where I post my random thoughts or cool things I want to share. I also use it as a storage space for things I don't want to forget.
 
 </div>
 
