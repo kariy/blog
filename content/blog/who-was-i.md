@@ -10,7 +10,7 @@ As I continued, I slowly forgot how I was 2 years before. My devotion was justif
 
 No.
 
-In the same circumstances, I'd go it again. My willingness to devote is because of the meaningful experiences it has given me, despite everything else.
+In the same circumstances, I'd do it again. My willingness to devote is because of the meaningful experiences it has given me, despite everything else.
 
 <pre class="ending-asciiart">
 <code>
