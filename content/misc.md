@@ -38,5 +38,6 @@ List of interesting blogs (mostly tech focused) that I follow regularly.
 - [Coding Horror](https://blog.codinghorror.com/)
 - [The Obversation Deck](https://bcantrill.dtrace.org/)
 - [Alex Miller's blog](https://transactional.blog/)
+- [Francesco Mazzoli](https://mazzo.li/archive.html)
 
 </div>
