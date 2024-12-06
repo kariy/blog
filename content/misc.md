@@ -37,5 +37,6 @@ List of interesting blogs (mostly tech focused) that I follow regularly.
 - [Alyssa Rosenzweig](https://rosenzweig.io/)
 - [Coding Horror](https://blog.codinghorror.com/)
 - [The Obversation Deck](https://bcantrill.dtrace.org/)
+- [Alex Miller's blog](https://transactional.blog/)
 
 </div>
