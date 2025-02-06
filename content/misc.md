@@ -40,5 +40,6 @@ List of interesting blogs (mostly tech focused) that I follow regularly.
 - [The Obversation Deck](https://bcantrill.dtrace.org/)
 - [Alex Miller's blog](https://transactional.blog/)
 - [Francesco Mazzoli](https://mazzo.li/archive.html)
+- [NULL BITMAP by Justin Jaffray](https://buttondown.com/jaffray/archive/)
 
 </div>
