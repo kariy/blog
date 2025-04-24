@@ -45,7 +45,7 @@ but by your own sense of owing
 
 from the outside looking in
 everyone tells you to it's better to stay
-that i'd be crazy to leave what i have
+that you'd be crazy to leave what you have
 that the odds favor comfort and security
 
 but they don't see
