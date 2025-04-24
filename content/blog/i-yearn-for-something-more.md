@@ -4,6 +4,7 @@ date = "2025-04-23T23:14:07-04:00"
 tags = ["finding-myself","life","random"]
 +++
 
+<pre>
 you lay there
 comfortably
 in the house they helped you build
@@ -51,6 +52,7 @@ but they don't see
 contentment may slowly hollows you out
 how staying somewhere safe might protect you today
 but steal something vital from you tomorrow
+</pre>
 
 i have become too comfortable with my current situation. i can't afford to be complacent any longer. even if i love where i am at right now, even if i know there's a high chance that i'll be better off here, is it really the best thing for me? is this what i need? and most importantly, is this what i truly want?
 
@@ -62,7 +64,7 @@ when i'm not sure of the path i must take, then what should i do?
 
 <pre class="ending-asciiart">
 <code>
-</code          __  __                                             
+          __  __                                             
          |. ||. |    .|                                      
          || ||| |    | |                W                    
          |: ||: |    |'|               [ ]         ._____    
@@ -72,5 +74,6 @@ when i'm not sure of the path i must take, then what should i do?
   |' | |.|  ||  | ||       '-'    -( )-|  |   |  | |    | |  
 __|  '-' '  ''  ' ""       '       J V |  `   -  |_'    ' |__
                              ___  '    /                     
-                             \  \/    |          >
+                             \  \/    |
+</code>
 </pre>
