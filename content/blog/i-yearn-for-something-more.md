@@ -1,5 +1,5 @@
 +++
-title = "Shackles of Guilt"
+title = "A type of guilt"
 date = "2025-04-23T23:14:07-04:00"
 tags = ["finding-myself","life","random"]
 +++
