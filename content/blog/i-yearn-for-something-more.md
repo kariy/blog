@@ -59,3 +59,18 @@ i ask myself, what is it do i want?
 the feeling of indebtness is the reason why i'm afraid to move forward.
 
 when i'm not sure of the path i must take, then what should i do?
+
+<pre class="ending-asciiart">
+<code>
+</code          __  __                                             
+         |. ||. |    .|                                      
+         || ||| |    | |                W                    
+         |: ||: |    |'|               [ ]         ._____    
+         |  ||  |   |  |     .--'|      3   .---"| |.   |'   
+     _   |  ||  |-. |  | __  |.  |     /|  _|__  | ||   |__  
+  .-'|  _|  ||  | ||   '-  | ||    \|// / |   |' | |    | |' 
+  |' | |.|  ||  | ||       '-'    -( )-|  |   |  | |    | |  
+__|  '-' '  ''  ' ""       '       J V |  `   -  |_'    ' |__
+                             ___  '    /                     
+                             \  \/    |          >
+</pre>
