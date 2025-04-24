@@ -6,7 +6,7 @@ tags = ["life","random", "finding-myself"]
 
 Who was I? What was I like before? Was this always on my mind? The memories of my past self has become blurry.
 
-As I continued, I slowly forgot how I was 2 years before. My devotion was justified by what I believed to be _right_. The reasoning was faithful to my own definition of *it*, but I may have devoted myself to the wrong thing. Next time, I should have chosen my devotions more carefully. 
+As I continued, I slowly forgot how I was years before. My devotion was justified by what I believed to be _right_. The reasoning was faithful to my own definition of *it*, but I may have devoted myself to the wrong thing. Next time, I should have chosen my devotions more carefully. 
 
 No.
 

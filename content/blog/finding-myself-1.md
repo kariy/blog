@@ -2,6 +2,7 @@
 title = "Finding myself #1"
 date = "2024-10-25T18:44:14-04:00"
 tags = ["life", "random", "finding-myself"]
+draft = true
 +++
 
 _This is the first post of my random rambles about my life, or maybe life in general. I'm calling this series of posts as 'Finding Myself`. Don't ask me why I'm giving it such a philosophical-esque name. I just feel like it._
